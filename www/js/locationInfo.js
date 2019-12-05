@@ -8,6 +8,7 @@ var locationInfo = {
     // console.log(url)
     // alert(url)
     api.fetchData(url, this.onSuccess);
+    
   },
   onSuccess: d => {
     var { country_code, country, city } = d.results[0].components;
@@ -31,7 +32,9 @@ var locationInfo = {
       "local_flag",
       `https://www.countryflags.io/${country_code}/shiny/64.png`
     );
-
+    // initialize converter
+    converter.getCurrencyData(iso_code);
+    
     locationInfo.loading(false);
   },
   loading: function(boolean) {
