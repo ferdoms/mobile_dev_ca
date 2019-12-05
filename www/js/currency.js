@@ -1,4 +1,4 @@
-var locationInfo = {
+var currency = {
   apiUrl: `https://api.opencagedata.com/geocode/v1/json?`,
   apiKey: "69ae4737763149a18be447eb47817ad8",
 

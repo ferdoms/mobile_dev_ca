@@ -41,6 +41,8 @@ var app = {
   receivedEvent: function() {
     geo.getLocation(position => {
       weather.getWeatherData(position.coords);
+      locationInfo.getLocationData(position.coords);
+      
     });
   },
 };

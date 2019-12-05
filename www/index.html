@@ -57,6 +57,7 @@
     />
 
     <title>Hello World</title>
+    
   </head>
 
   <body>
@@ -76,10 +77,10 @@
             <a href="#test-swipe-1">Currency</a>
           </li>
           <li class="tab col s3">
-            <a href="#test-swipe-2">Info</a>
+            <a class="active" href="#test-swipe-2">Info</a>
           </li>
           <li class="tab col s3">
-            <a class="active" href="#test-swipe-3">Weather</a>
+            <a href="#test-swipe-3">Weather</a>
           </li>
         </ul>
       </div>
@@ -97,19 +98,19 @@
                 <div class="input-field ">
                   <input id="to_usd_currency" type="number" />
                   <label for="to_usd_currency" id="label_lc"
-                    >Local currency</label
+                    ><span class="cur_name"></span> (<span class="cur_code"></span> - <span class="cur_symbol"></span>)</label
                   >
                 </div>
               </div>
             </div>
             <div class="ma0 center-align">
-              <img src="" class="h3 w3 img_local_flag" alt="flag" />
+              <img src="" class="h3 w3 local_flag" alt="flag" />
             </div>
             <div class="mv5 center-align">
               <h6>USD - $ <span id="converted">0,00</span></h6>
               <img
-                src="https://www.countryflags.io/us/shiny/64.png"
-                class="h3 w3"
+              src="https://www.countryflags.io/us/shiny/64.png"
+              class="h3 w3"
                 alt="flag"
               />
             </div>
@@ -135,10 +136,10 @@
             </div>
             <div class="mv5 center-align">
               <h6>
-                <span id="cur_name">USD</span> - <span id="cur_symbol">$</span>
+                <span class="cur_code"></span> - <span class="cur_symbol"></span>
                 <span id="converted2">0,00</span>
               </h6>
-              <img src="" class="h3 w3 img_local_flag" alt="flag" />
+              <img src="" class="h3 w3 local_flag" alt="flag" />
             </div>
           </div>
         </div>
@@ -148,47 +149,51 @@
           class="flex flex-row items-center justify-center white"
           style="display: flex;"
         >
-          <div class="pa4 w-100 flex" id="location_info">
-            <div>
-              <p>Finding geolocation...</p>
+          <div class="pa4 w-100 flex">
+            <div id="loading_location_info">
+              <p>Loading location info...</p>
               <div class="progress">
                 <div class="indeterminate"></div>
               </div>
             </div>
 
-            <div>
+            <div id="location_info" style = "display:none;">
+                    
               <div class="ma0 center-align">
+                <h5 class="mt0" >Wellcome!</h5>
                 <img
-                  src="https://www.countryflags.io/${country_code}/shiny/64.png"
-                  class="h3 w3"
+                  src=""
+                  class="h3 w3 local_flag"
                   alt="flag"
                 />
-                <p class="ma0">
-                  ${city}, ${country}
-                </p>
+                <p class="mv0">
+                        <span class="city"></span>,
+                        <span class="country"></span>
+                    </p>
                 <div class="divider mv4"></div>
               </div>
               <div>
-                <h5>More info:</h5>
+                <h6>More info:</h6>
                 <div class="grey-text text-darken-3">
                   <p class="ma0">
-                    <span class="black-text ">Country: </span>${country}
-                    (${country_code})
+                    <span class="black-text ">Country: </span><span class="country"></span>
+                    (<span class="country_code"></span>)
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">City: </span>${city}
+                    <span class="black-text ">City: </span><span class="city"></span>
                   </p>
                   <p class="ma0">
                     <span class="black-text ">Calling code: </span
-                    >${callingCode}
+                    >
+                    +<span id="callingCode"></span>
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">Currency name: </span>${name} -
-                    ${symbol}
+                    <span class="black-text ">Currency name: </span><span class="cur_name"></span> -
+                    <span class="cur_symbol"></span>
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">Latitude: </span>${lat},
-                    <span class="black-text ">Longitude: </span>${lng}
+                    <span class="black-text ">Latitude: </span><span id="lat"></span>,
+                    <span class="black-text ">Longitude: </span><span id="long"></span>
                   </p>
                 </div>
               </div>
@@ -203,7 +208,7 @@
         >
           <div class="pa4 w-100 flex">
             <div id="loading_weather" >
-              <p>Finding geolocation...</p>
+              <p>Loading weather...</p>
               <div class="progress">
                 <div class="indeterminate"></div>
               </div>
@@ -220,7 +225,10 @@
                   <p class="mv0" style="font-size: 6rem; font-weight: 300;">
                     <span id="temp"></span>°
                   </p>
-                  <p class="mv0">Dublin, Ireland</p>
+                  <p class="mv0">
+                      <span class="city"></span>,
+                      <span class="country"></span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -252,6 +260,8 @@
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/geolocation.js"></script>
     <script type="text/javascript" src="js/locationInfo.js"></script>
+    <script type="text/javascript" src="js/currency.js"></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript">
       var elems = document.querySelectorAll(".fixed-action-btn");
       var instances = M.FloatingActionButton.init(elems);
