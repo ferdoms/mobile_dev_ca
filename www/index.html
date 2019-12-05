@@ -44,10 +44,7 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" type="text/css" href="css/material_icons.css" />
     <!--Import materialize.css-->
 
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
@@ -65,7 +62,10 @@
   <body>
     <div class="flex">
       <!-- ----------------------Header------------------ -->
-      <div class="white" style="position: fixed;width: 100%; z-index: 1000">
+      <div
+        class="white z-depth-1"
+        style="position: fixed;width: 100%; z-index: 1000"
+      >
         <nav class="nav-extended">
           <div class="nav-wrapper">
             <a href="#" class="brand-logo">InfoApp</a>
@@ -76,15 +76,16 @@
             <a href="#test-swipe-1">Currency</a>
           </li>
           <li class="tab col s3">
-            <a class="active" href="#test-swipe-2">Info</a>
+            <a href="#test-swipe-2">Info</a>
           </li>
           <li class="tab col s3">
-            <a href="#test-swipe-3">Weather</a>
+            <a class="active" href="#test-swipe-3">Weather</a>
           </li>
         </ul>
       </div>
       <!-- ----------------------Pages------------------ -->
       <div class="pt6">
+        <!-- ----------------------Currency------------------ -->
         <div
           id="test-swipe-1"
           class="flex items-center justify-center white"
@@ -199,19 +200,64 @@
           id="test-swipe-3"
           class="flex flex-row items-center justify-center white"
           style="display: flex;"
-        ></div>
-        <img src=""/>
+        >
+          <div class="pa4 w-100 flex">
+            <div id="loading_weather" >
+              <p>Finding geolocation...</p>
+              <div class="progress">
+                <div class="indeterminate"></div>
+              </div>
+            </div>
+            <div id="weather_page" style="display: none;">
+              <div class="center-align flex-column z-depth-1">
+                <div class="grey">
+                  <img
+                    id="temp_icon"
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                  />
+                </div>
+                <div class="pv4">
+                  <p class="mv0" style="font-size: 6rem; font-weight: 300;">
+                    <span id="temp"></span>°
+                  </p>
+                  <p class="mv0">Dublin, Ireland</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- ----------------------Currency------------------ -->
     </div>
-    <script src="js/promise.js"></script>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li>
+          <a class="btn-floating red"
+            ><i class="material-icons">insert_chart</i></a
+          >
+        </li>
+        <li>
+          <a class="btn-floating yellow darken-1"
+            ><i class="material-icons">format_quote</i></a
+          >
+        </li>
+      </ul>
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/weather.js"></script>
+    <script type="text/javascript" src="js/geolocation.js"></script>
+    <script type="text/javascript" src="js/locationInfo.js"></script>
     <script type="text/javascript">
+      var elems = document.querySelectorAll(".fixed-action-btn");
+      var instances = M.FloatingActionButton.init(elems);
       var el = document.getElementsByClassName("tabs")[0];
-      console.log("el: ", el);
       var instance = M.Tabs.init(el);
+
       app.initialize();
     </script>
   </body>
