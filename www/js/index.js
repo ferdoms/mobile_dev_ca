@@ -27,8 +27,6 @@ var app = {
   // 'load', 'deviceready', 'offline', and 'online'.
   bindEvents: function() {
     document.addEventListener("deviceready", this.onDeviceReady, false);
-    // app.getGeolocation(function (c){coords=c;
-    //     alert("foi")},function (e){alert(e)})
   },
   // deviceready Event Handler
   //
@@ -37,12 +35,47 @@ var app = {
   onDeviceReady: function() {
     // weather.getWeatherData()
     app.receivedEvent("deviceready");
+
+    //
   },
   receivedEvent: function() {
+    repository.start();
     geo.getLocation(position => {
       weather.getWeatherData(position.coords);
       locationInfo.getLocationData(position.coords);
-      
     });
+    app.initMenu();
   },
+  initMenu() {
+    var listDataBtn = document.getElementById("listDataBtn");
+    var saveBtn = document.getElementById("saveBtn");
+    var cameraBtn = document.getElementById("cameraBtn");
+    listDataBtn.onclick = e => {
+      repository.getAll(function(data) {
+        let buildHtml = "";
+        for (let index = 0; index < data.length; index++) {
+          buildHtml = buildHtml + helpers.buildListItem(data.item(index));
+        }
+        document.getElementById("listDataDisplay").innerHTML = buildHtml;
+        // console.log(helpers.renderListData(data.item(0)))
+      });
+      var instance = M.Modal.getInstance(document.getElementById("listData"));
+      instance.open();
+    };
+    saveBtn.onclick = e => {
+      console.log(converter.quotation)
+      let obj = {
+        city: locationInfo.city,
+        country: locationInfo.country,
+        currency: locationInfo.currency,
+        quotation: converter.quotation,
+        temp: weather.temp
+      };
+      repository.saveData(obj);
+    };
+
+    var modal_list_records = M.Modal.getInstance(
+      document.getElementById("listData")
+    );
+  }
 };

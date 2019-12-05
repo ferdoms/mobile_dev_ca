@@ -10,6 +10,7 @@ var weather = {
     );
   },
   onSuccess: d => {
+    // assigning data to local variable (this data will be saved in local storage)
     weather.temp = d.main.temp;
     weather.icon = d.weather[0].icon;
 

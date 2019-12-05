@@ -26,7 +26,9 @@ var converter = {
     // else return amount * 1.25
   },
   onSuccess: d => {
+    // assigning data to local variable (this data will be saved in local storage)
     converter.quotation = d.quotes[`USD${converter.iso_code}`];
+    
     converter.listeningCurrencyChanges();
     converter.loading(false);
     

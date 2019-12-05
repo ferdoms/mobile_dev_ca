@@ -57,7 +57,6 @@
     />
 
     <title>Hello World</title>
-    
   </head>
 
   <body>
@@ -92,65 +91,68 @@
           class="flex items-center justify-center white"
           style="display: flex; height: 85vh; "
         >
-            <div id="loading_converter">
-                <p>Loading converter...</p>
-                <div class="progress">
-                  <div class="indeterminate"></div>
+          <div class="pa4" id="loading_converter">
+            <p>Loading converter...</p>
+            <div class="progress">
+              <div class="indeterminate"></div>
+            </div>
+          </div>
+          <div id="converter" style="display: none;">
+            <div class="ph4 w-100">
+              <div class="items-center">
+                <div class="w-40" style="margin: auto;">
+                  <div class="input-field ">
+                    <input id="to_usd_currency" type="number" />
+                    <label for="to_usd_currency" id="label_lc"
+                      ><span class="cur_name"></span> (<span
+                        class="cur_code"
+                      ></span>
+                      - <span class="cur_symbol"></span>)</label
+                    >
+                  </div>
                 </div>
               </div>
-            <div id="converter" style="display: none;">
-                    <div class="ph4 w-100">
-                            <div class="items-center">
-                              <div class="w-40" style="margin: auto;">
-                                <div class="input-field ">
-                                  <input id="to_usd_currency" type="number" />
-                                  <label for="to_usd_currency" id="label_lc"
-                                    ><span class="cur_name"></span> (<span class="cur_code"></span> - <span class="cur_symbol"></span>)</label
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ma0 center-align">
-                              <img src="" class="h3 w3 local_flag" alt="flag" />
-                            </div>
-                            <div class="mv5 center-align">
-                              <h6>USD - $ <span id="converted">0,00</span></h6>
-                              <img
-                              src="https://www.countryflags.io/us/shiny/64.png"
-                              class="h3 w3"
-                                alt="flag"
-                              />
-                            </div>
-                          </div>
-                          <div class="divider ma4"></div>
-                          <div class="ph4 w-100">
-                            <div class="items-center">
-                              <div class="w-40" style="margin: auto;">
-                                <div class="input-field ">
-                                  <input id="to_local_currency" type="number" />
-                                  <label for="to_local_currency" id="label_lc"
-                                    >Dollar (USD - $)</label
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                            <div class="ma0 center-align">
-                              <img
-                                src="https://www.countryflags.io/us/shiny/64.png"
-                                class="h3 w3"
-                                alt="flag"
-                              />
-                            </div>
-                            <div class="mv5 center-align">
-                              <h6>
-                                <span class="cur_code"></span> - <span class="cur_symbol"></span>
-                                <span id="converted2">0,00</span>
-                              </h6>
-                              <img src="" class="h3 w3 local_flag" alt="flag" />
-                            </div>
-                          </div>
-            </div>        
-            
+              <div class="ma0 center-align">
+                <img src="" class="h3 w3 local_flag" alt="flag" />
+              </div>
+              <div class="mv5 center-align">
+                <h6>USD - $ <span id="converted">0,00</span></h6>
+                <img
+                  src="https://www.countryflags.io/us/shiny/64.png"
+                  class="h3 w3"
+                  alt="flag"
+                />
+              </div>
+            </div>
+            <div class="divider ma4"></div>
+            <div class="ph4 w-100">
+              <div class="items-center">
+                <div class="w-40" style="margin: auto;">
+                  <div class="input-field ">
+                    <input id="to_local_currency" type="number" />
+                    <label for="to_local_currency" id="label_lc"
+                      >Dollar (USD - $)</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="ma0 center-align">
+                <img
+                  src="https://www.countryflags.io/us/shiny/64.png"
+                  class="h3 w3"
+                  alt="flag"
+                />
+              </div>
+              <div class="mv5 center-align">
+                <h6>
+                  <span class="cur_code"></span> -
+                  <span class="cur_symbol"></span>
+                  <span id="converted2">0,00</span>
+                </h6>
+                <img src="" class="h3 w3 local_flag" alt="flag" />
+              </div>
+            </div>
+          </div>
         </div>
         <!-- ----------------------INFO------------------ -->
         <div
@@ -166,43 +168,44 @@
               </div>
             </div>
 
-            <div id="location_info" style = "display:none;">
-                    
+            <div id="location_info" style="display:none;">
               <div class="ma0 center-align">
-                <h5 class="mt0" >Wellcome!</h5>
-                <img
-                  src=""
-                  class="h3 w3 local_flag"
-                  alt="flag"
-                />
+                <h5 class="mt0">Wellcome!</h5>
+                <img src="" class="h3 w3 local_flag" alt="flag" />
                 <p class="mv0">
-                        <span class="city"></span>,
-                        <span class="country"></span>
-                    </p>
+                  <span class="city"></span>,
+                  <span class="country"></span>
+                </p>
                 <div class="divider mv4"></div>
               </div>
               <div>
                 <h6>More info:</h6>
                 <div class="grey-text text-darken-3">
                   <p class="ma0">
-                    <span class="black-text ">Country: </span><span class="country"></span>
-                    (<span class="country_code"></span>)
+                    <span class="black-text ">Country: </span
+                    ><span class="country"></span> (<span
+                      class="country_code"
+                    ></span
+                    >)
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">City: </span><span class="city"></span>
+                    <span class="black-text ">City: </span
+                    ><span class="city"></span>
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">Calling code: </span
-                    >
+                    <span class="black-text ">Calling code: </span>
                     +<span id="callingCode"></span>
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">Currency name: </span><span class="cur_name"></span> -
+                    <span class="black-text ">Currency name: </span
+                    ><span class="cur_name"></span> -
                     <span class="cur_symbol"></span>
                   </p>
                   <p class="ma0">
-                    <span class="black-text ">Latitude: </span><span id="lat"></span>,
-                    <span class="black-text ">Longitude: </span><span id="long"></span>
+                    <span class="black-text ">Latitude: </span
+                    ><span id="lat"></span>,
+                    <span class="black-text ">Longitude: </span
+                    ><span id="long"></span>
                   </p>
                 </div>
               </div>
@@ -216,7 +219,7 @@
           style="display: flex;"
         >
           <div class="pa4 w-100 flex">
-            <div id="loading_weather" >
+            <div id="loading_weather">
               <p>Loading weather...</p>
               <div class="progress">
                 <div class="indeterminate"></div>
@@ -235,8 +238,8 @@
                     <span id="temp"></span>°
                   </p>
                   <p class="mv0">
-                      <span class="city"></span>,
-                      <span class="country"></span>
+                    <span class="city"></span>,
+                    <span class="country"></span>
                   </p>
                 </div>
               </div>
@@ -245,22 +248,91 @@
         </div>
       </div>
     </div>
+    <!-- ----------------------Floatting menu------------------ -->
     <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
+      <a id="menu" class="btn-floating btn-large red">
+        <i class="large material-icons">menu</i>
       </a>
       <ul>
         <li>
-          <a class="btn-floating red"
-            ><i class="material-icons">insert_chart</i></a
+          Camera
+          <a class="btn-floating red">
+            <i class="material-icons">camera_alt</i>
+          </a>
+        </li>
+        <li>
+          History
+          <a id="listDataBtn" class="btn-floating red" href="#listData"
+            ><i class="material-icons">assignment</i></a
           >
         </li>
         <li>
-          <a class="btn-floating yellow darken-1"
+          Save
+          <a id="saveBtn" class="btn-floating red"
             ><i class="material-icons">format_quote</i></a
           >
         </li>
       </ul>
+    </div>
+    <!-- ----------------------modal------------------ -->
+    <div>
+      <!-- Modal Structure -->
+      <div id="listData" class="modal ">
+        <div class="modal-content">
+          <h4>History</h4>
+          
+          <ul class="collection" id="listDataDisplay">
+                <p>No data to display.</p>
+            <!-- <li class="collection-item">
+              <div
+                class="center-align w-30 pr3"
+                style="display: inline-block; border-right: 1px solid #e0e0e0;"
+              >
+                <h4 class="ma0">
+                  12
+                </h4>
+                <p class="mb0 mt1">may, 2016</p>
+              </div>
+              <div class="pl3 grey-text text-darken-2" style="display: inline-block;">
+                <h6 class="pt0">City, Country</h6>
+                <p class="ma0">
+                  <span class="black-text">Currency: </span>
+                  <span class="cur_name"></span>
+                </p>
+                <p class="ma0">
+                  <span class="black-text">Quotation: </span>
+                  <span class="cur_name"></span>
+                </p>
+                <p class="ma0">
+                  <span class="black-text">Temperature: </span>
+                  <span class="cur_name"></span>°
+                </p>
+              </div>
+            </li>
+            <li class="collection-item">
+              <p>01/01/2019</p>
+              <span class="title">Title</span>
+              <p>
+                First Line <br />
+                Second Line
+              </p>
+            </li>
+            <li class="collection-item">
+              <p>01/01/2019</p>
+              <span class="title">Title</span>
+              <p>
+                First Line <br />
+                Second Line
+              </p>
+            </li> -->
+          </ul>
+        </div>
+        <!-- <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >Agree</a
+          >
+        </div> -->
+      </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -270,12 +342,17 @@
     <script type="text/javascript" src="js/geolocation.js"></script>
     <script type="text/javascript" src="js/locationInfo.js"></script>
     <script type="text/javascript" src="js/converter.js"></script>
+    <script type="text/javascript" src="js/repository.js"></script>
     <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript">
-      var elems = document.querySelectorAll(".fixed-action-btn");
-      var instances = M.FloatingActionButton.init(elems);
-      var el = document.getElementsByClassName("tabs")[0];
-      var instance = M.Tabs.init(el);
+      document.addEventListener("DOMContentLoaded", function() {
+        var floatingBtn = document.querySelectorAll(".fixed-action-btn");
+        var inst_floatingBtn = M.FloatingActionButton.init(floatingBtn);
+        var tabs = document.getElementsByClassName("tabs")[0];
+        var inst_tabs = M.Tabs.init(tabs);
+        var modals = document.querySelectorAll(".modal");
+        var inst_modals = M.Modal.init(modals);
+      });
 
       app.initialize();
     </script>

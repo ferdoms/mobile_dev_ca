@@ -1,6 +1,9 @@
 var locationInfo = {
   apiUrl: `https://api.opencagedata.com/geocode/v1/json?`,
   apiKey: "69ae4737763149a18be447eb47817ad8",
+  city: undefined,
+  country: undefined,
+  currency: undefined,
 
   getLocationData: function(coords) {
     var { latitude, longitude } = coords;
@@ -8,7 +11,6 @@ var locationInfo = {
     // console.log(url)
     // alert(url)
     api.fetchData(url, this.onSuccess);
-    
   },
   onSuccess: d => {
     var { country_code, country, city } = d.results[0].components;
@@ -16,6 +18,11 @@ var locationInfo = {
     var { iso_code, name, symbol } = d.results[0].annotations.currency;
     var { lat, lng } = d.results[0].geometry;
 
+    // assigning data to local variable (this data will be saved in local storage)
+    locationInfo.city = city;
+    locationInfo.country = country;
+    locationInfo.currency = name;
+    
     // update elements content
     helpers.updateElements("city", city);
     helpers.updateElements("country", country);
@@ -34,7 +41,7 @@ var locationInfo = {
     );
     // initialize converter
     converter.getCurrencyData(iso_code);
-    
+
     locationInfo.loading(false);
   },
   loading: function(boolean) {
