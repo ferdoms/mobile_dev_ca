@@ -5,7 +5,7 @@ var repository = {
     db.transaction(this.generateDB, this.errorCB, this.onDBCreated);
   },
   generateDB(tx) {
-    tx.executeSql("DROP TABLE IF EXISTS info");
+    // tx.executeSql("DROP TABLE IF EXISTS info");
     tx.executeSql(
       `CREATE TABLE info (id integer PRIMARY KEY, date TEXT, city TEXT, country TEXT, currency TEXT, quotation TEXT, temperature TEXT)`
     );
