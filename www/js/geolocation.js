@@ -9,6 +9,10 @@ var geo = {
       timeout: 5000,
       enableHighAccuracy: true
     };
-    navigator.geolocation.getCurrentPosition(callback, this.onError, this.gpsOptions);
+    navigator.geolocation.getCurrentPosition(
+      callback,
+      this.onError,
+      this.gpsOptions
+    );
   }
 };

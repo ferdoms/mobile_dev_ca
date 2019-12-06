@@ -9,15 +9,6 @@ var repository = {
     tx.executeSql(
       `CREATE TABLE info (id integer PRIMARY KEY, date TEXT, city TEXT, country TEXT, currency TEXT, quotation TEXT, temperature TEXT)`
     );
-    tx.executeSql(`INSERT INTO info (date,city,country,currency,quotation,temperature) VALUES (
-        '01/01/2019',
-        'city',
-        'contry',
-        'euro',
-        '0.92',
-        '10'
-      )
-    `);
   },
   errorCB(err) {
     alert("Error processing SQL: " + err.code);
@@ -52,7 +43,7 @@ var repository = {
     this.queryDB(
       "SELECT date,city,country,currency,quotation,temperature FROM info",
       function(results) {
-        console.log(results.length)
+        console.log(results.length);
         callback(results);
       }
     );
@@ -61,7 +52,8 @@ var repository = {
     let { city, country, currency, quotation, temp } = obj;
     let d = new Date();
     let date = `${d.getDay() + 1}/${d.getMonth() + 1}/${d.getFullYear()}`;
-      this.queryDB(`INSERT INTO info (date,city,country,currency,quotation,temperature) VALUES (
+    this.queryDB(
+      `INSERT INTO info (date,city,country,currency,quotation,temperature) VALUES (
         '${date}',
         '${city}',
         '${country}',
@@ -69,8 +61,10 @@ var repository = {
         '${quotation}',
         '${temp}'
       )
-    `, function(results) {
-        alert("Saved successfully.")
-      });
+    `,
+      function(results) {
+        alert("Saved successfully.");
+      }
+    );
   }
 };

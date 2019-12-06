@@ -22,7 +22,7 @@ var locationInfo = {
     locationInfo.city = city;
     locationInfo.country = country;
     locationInfo.currency = name;
-    
+
     // update elements content
     helpers.updateElements("city", city);
     helpers.updateElements("country", country);

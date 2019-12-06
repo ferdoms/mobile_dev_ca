@@ -1,6 +1,6 @@
 var converter = {
   apiUrl: `http://apilayer.net/api/live`,
-  apiKey: "fe40a7704d42efaa29a8205882258f71",
+  apiKey: "c164cf9ec8a39de4ec179300237a8b1e",
   iso_code: undefined,
   quotation: undefined,
 
@@ -28,10 +28,9 @@ var converter = {
   onSuccess: d => {
     // assigning data to local variable (this data will be saved in local storage)
     converter.quotation = d.quotes[`USD${converter.iso_code}`];
-    
+
     converter.listeningCurrencyChanges();
     converter.loading(false);
-    
   },
   listeningCurrencyChanges: function() {
     document.getElementById("to_usd_currency").onchange = e => {

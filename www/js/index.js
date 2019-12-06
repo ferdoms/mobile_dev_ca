@@ -39,13 +39,22 @@ var app = {
     //
   },
   receivedEvent: function() {
+    // init repository
     repository.start();
+    //get gps location and feeds weather and localInfo controllers
     geo.getLocation(position => {
       weather.getWeatherData(position.coords);
       locationInfo.getLocationData(position.coords);
     });
+    //create camera folder
+
+    // config camera
+    camera.destinationType = navigator.camera.DestinationType;
+
+    // init menu
     app.initMenu();
   },
+
   initMenu() {
     var listDataBtn = document.getElementById("listDataBtn");
     var saveBtn = document.getElementById("saveBtn");
@@ -57,13 +66,12 @@ var app = {
           buildHtml = buildHtml + helpers.buildListItem(data.item(index));
         }
         document.getElementById("listDataDisplay").innerHTML = buildHtml;
-        // console.log(helpers.renderListData(data.item(0)))
       });
       var instance = M.Modal.getInstance(document.getElementById("listData"));
       instance.open();
     };
     saveBtn.onclick = e => {
-      console.log(converter.quotation)
+      console.log(converter.quotation);
       let obj = {
         city: locationInfo.city,
         country: locationInfo.country,
@@ -73,9 +81,9 @@ var app = {
       };
       repository.saveData(obj);
     };
-
-    var modal_list_records = M.Modal.getInstance(
-      document.getElementById("listData")
-    );
+    cameraBtn.onclick = () => {
+      // console.log(camera)
+      camera.capturePhoto();
+    };
   }
 };

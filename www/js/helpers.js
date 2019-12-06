@@ -29,9 +29,9 @@ var helpers = {
       "Dec"
     ];
     var { date, city, country, currency, quotation, temperature } = obj;
-    let d = new Date().getUTCDate(date)
-    let month = monthNames[new Date().getUTCMonth(date)]
-    let year = new Date().getUTCFullYear(date)
+    let d = new Date().getUTCDate(date);
+    let month = monthNames[new Date().getUTCMonth(date)];
+    let year = new Date().getUTCFullYear(date);
 
     console.log("date", new Date().getUTCMonth(date));
     return `<li class="collection-item">
