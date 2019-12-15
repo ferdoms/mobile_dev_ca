@@ -1,13 +1,13 @@
 var repository = {
   db_name: "InfoAppDB",
   start: function() {
-    var db = window.openDatabase(this.db_name, "1.0", "InfoApp", 200000);
+    var db = window.openDatabase(this.db_name, "1.0", "InfoApp", 2000000);
     db.transaction(this.generateDB, this.errorCB, this.onDBCreated);
   },
   generateDB(tx) {
     // tx.executeSql("DROP TABLE IF EXISTS info");
     tx.executeSql(
-      `CREATE TABLE info (id integer PRIMARY KEY, date TEXT, city TEXT, country TEXT, currency TEXT, quotation TEXT, temperature TEXT)`
+      `CREATE TABLE IF NOT EXISTS info (id integer PRIMARY KEY, date TEXT, city TEXT, country TEXT, currency TEXT, quotation TEXT, temperature TEXT)`
     );
   },
   errorCB(err) {
